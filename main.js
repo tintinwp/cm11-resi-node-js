@@ -20,7 +20,10 @@ const server = http.createServer(async (req, res) => {
         const baseUrl = process.env.FRONTEND_URL || ''; // Replace with your base URL
 
         // Launch a headless browser
-        const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox'], });
+        const browser = await puppeteer.launch({
+          headless: 'new',
+          args: ['--no-sandbox'],
+        });
 
         // Create a new page
         const page = await browser.newPage();
@@ -34,7 +37,7 @@ const server = http.createServer(async (req, res) => {
         for (const key in data) {
           targetUrl.searchParams.set(key, data[key]);
         }
-	console.log(targetUrl.toString());
+        console.log(targetUrl.toString());
 
         // Navigate to the target URL
         await page.goto(targetUrl.toString());
@@ -66,7 +69,7 @@ const server = http.createServer(async (req, res) => {
         res.setHeader('Content-Type', 'application/pdf');
         res.setHeader(
           'Content-Disposition',
-          'attachment; filename="output.pdf"'
+          `attachment; filename="Resi - ${data.orderId}.pdf"`
         );
 
         // Send the PDF buffer as the response
