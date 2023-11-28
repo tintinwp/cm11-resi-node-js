@@ -4,6 +4,9 @@ const puppeteer = require('puppeteer');
 
 const server = http.createServer(async (req, res) => {
   try {
+    if (req.method === 'GET') {
+      return res.end('Success');
+    }
     if (req.method === 'POST') {
       let requestBody = '';
 
