@@ -54,8 +54,8 @@ const server = http.createServer(async (req, res) => {
 
         // Generate a PDF with the specific element
         const pdfBuffer = await page.pdf({
-          format: 'a4', // PDF format
-          margin: { top: '20px', right: '20px', bottom: '20px', left: '20px' }, // Page margins
+          format: 'a6', // PDF format
+          margin: { top: '3px', right: '3px', bottom: '3px', left: '3px' }, // Page margins
           printBackground: true, // Include background colors and images
           width: `${boundingBox.width}px`, // Match the element's width
           height: `${boundingBox.height}px`, // Match the element's height
