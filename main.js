@@ -37,7 +37,9 @@ const server = http.createServer(async (req, res) => {
         for (const key in data) {
           targetUrl.searchParams.set(key, data[key]);
         }
-        console.log(targetUrl.toString());
+
+        // !Debugging Purposes
+        // console.log(targetUrl.toString());
 
         // Navigate to the target URL
         await page.goto(targetUrl.toString());
